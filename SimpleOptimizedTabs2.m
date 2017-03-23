@@ -167,6 +167,19 @@ varargout{1} = handles.output;
 %--------------- FROM HERE ADDITIONAL BOTTONS ARE ADDED--------------------
 
 
+%------------- start/stop simulink ----------------
+function Start_stop_simulink_toggle_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+    if button_state == get(hObject,'Max')
+        set_param('House_model','SimulationCommand','start');
+        set(handles.Start_Stop_toggle,'BackgroundColor','green');
+    elseif button_state == get(hObject,'Min')
+        set_param('House_model','SimulationCommand','stop');
+        set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
+    end
+
+
+
 %**********************************************
 %*************** FLOOR 4 **********************
 %**********************************************
@@ -483,9 +496,4 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %BlockTypes = get_param(BlockPaths,'BlockType')
 %BlockTypes = get_param(House_model/F4_bulb,'Scope')
 %rto = get_param(gcb,'simout');
-
-
-
-
-
 
