@@ -172,10 +172,10 @@ function Start_stop_simulink_toggle_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
         set_param('House_model','SimulationCommand','start');
-        set(handles.Start_Stop_toggle,'BackgroundColor','green');
+        set(handles.Start_stop_simulink_toggle,'BackgroundColor','green');
     elseif button_state == get(hObject,'Min')
         set_param('House_model','SimulationCommand','stop');
-        set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.Start_stop_simulink_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
 
 
