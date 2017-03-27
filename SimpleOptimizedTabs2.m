@@ -167,10 +167,19 @@ varargout{1} = handles.output;
 %--------------- FROM HERE ADDITIONAL BOTTONS ARE ADDED--------------------
 
 
+
 %------------- start/stop simulink ----------------
 
-% --- Executes on button press in Start_Stop_toggle.
+%---------- Open simulink model if not opened ------
+   if bdIsLoaded('House_model')
+       fprintf('open and ready')   
+   elseif ~bdIsLoaded('House_model')
+       open_system('House_model')
+   end
+   
+% ---------------- Run model -------------------
 function Start_Stop_toggle_Callback(hObject, eventdata, handles)
+
 
 button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
@@ -493,11 +502,31 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
-get(hObject,'Value')
+
 %set(handles.Phones_charging_slider, 'Value', 10);
 
-
-
+ % set the slider range and step size
+ value = round(get(hObject,'Value'))
+    if value == 0 
+        set(handles.Phones_charging_slider, 'Value', 0);
+        fprintf('hej')
+    end
+ 
+ numSteps = 14;
+ set(handles.Phones_charging_slider, 'Min', 0);
+ set(handles.Phones_charging_slider, 'Max', numSteps);
+ set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps) , 10/(numSteps) ]);
+ 
+ uicontrol('style', 'text', 'string', '0', 'position', [25 25 25 25])
+ 
+ 
+ %set(handles.Phones_charging_slider,'Min',0,'Max',14,'Sliderstep',[1.0,2.0])
+ 
+ %get value from slider
+ %Phones_Charging = get(hObject,'Value')
+ Phones_Charging = round(get(hObject,'Value'))
+ 
+ 
 % --- Executes during object creation, after setting all properties.
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to Phones_charging_slider (see GCBO)
