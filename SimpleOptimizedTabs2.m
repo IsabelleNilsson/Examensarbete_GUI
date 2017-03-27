@@ -54,7 +54,7 @@ handles.output = hObject;
 %% Tabs Code
 % Settings
 TabFontSize = 8;
-TabNames = {'Floor 4','Floor 3','Tab 3'};
+TabNames = {'Floor 4','Floor 3','Energy'};
 FigWidth = 0.5;
 
 % Figure resize
@@ -119,6 +119,9 @@ set(handles.tab1Panel,'Units','normalized')
 pan1pos=get(handles.tab1Panel,'Position');
 set(handles.tab1text,'Visible','off')
 
+%set(handles.tab2Panel,'Units','normalized')
+%pan2pos=get(handles.tab2Panel,'Position');
+%set(handles.tab2text,'Visible','off')
 
 %set(handles.axes3,'Visible','on')
 
@@ -141,6 +144,7 @@ for i = 1:handles.TabsNumber;
         set(handles.(['a',n]),'Color',handles.selectedTabColor)
         set(handles.(['t',n]),'BackgroundColor',handles.selectedTabColor)
         set(handles.(['tab',n,'Panel']),'Visible','on') 
+        
         % ------- Picture in the background (not working yet)---------------------
        % panhandle = uipanel(handles.tab1Panel);
        % panax = axes('Units','normal','DataAspectRatioMode','auto', 'Parent', panhandle);
@@ -149,7 +153,7 @@ for i = 1:handles.TabsNumber;
     else
         set(handles.(['a',n]),'Color',handles.unselectedTabColor)
         set(handles.(['t',n]),'BackgroundColor',handles.unselectedTabColor)
-        set(handles.(['tab',n,'Panel']),'Visible','off') 
+        set(handles.(['tab',n,'Panel']),'Visible','off')
     end
 end
 
@@ -190,15 +194,12 @@ button_state = get(hObject,'Value');
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
 
-
-
-
 %**********************************************
 %*************** FLOOR 4 **********************
 %**********************************************
 
 
-%---------------- Bulb ----------------------
+%---------------- Bulbs ----------------------
 
 % bulb max 7 Watt, energy/day 0.28 kW total 
 % flourecent max 36 Watt
@@ -608,14 +609,99 @@ end
 
 
 
+%**********************************************
+%*************** FLOOR 3 **********************
+%**********************************************
+
+%---------------- Flourcent ----------------------
+
+% --- Executes on button press in togglebutton1.
+function F3_Fluorscent_toggle_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_1,'BackgroundColor','green');
+    F3_flourecent_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_1 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_1','Value', num2str(F3_flourecent_1));
+
+% --- Executes on button press in togglebutton3.
+function togglebutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton3
 
 
+% --- Executes on button press in togglebutton4.
+function togglebutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
 
+% Hint: get(hObject,'Value') returns toggle state of togglebutton4
+
+
+% --- Executes on button press in togglebutton5.
+function togglebutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton5
+
+
+% --- Executes on button press in togglebutton6.
+function togglebutton6_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton6 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton6
+
+
+% --- Executes on button press in togglebutton7.
+function togglebutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton7
+
+
+% --- Executes on button press in togglebutton8.
+function togglebutton8_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton8
+
+
+% --- Executes on button press in togglebutton9.
+function togglebutton9_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton9 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton9
+
+
+% --- Executes on button press in togglebutton10.
+function togglebutton10_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton10
 
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Plot
+%           Plot, Tab 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes during object creation, after setting all properties.
@@ -632,6 +718,9 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %BlockTypes = get_param(BlockPaths,'BlockType')
 %BlockTypes = get_param(House_model/F4_bulb,'Scope')
 %rto = get_param(gcb,'simout');
+
+
+
 
 
 
