@@ -518,7 +518,7 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
  set(handles.Phones_charging_slider, 'Max', numSteps);
  set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps) , 10/(numSteps) ]);
  
- uicontrol('style', 'text', 'string', '0', 'position', [25 25 25 25])
+ %uicontrol('style', 'text', 'string', '0', 'position', [25 25 25 25])
  
  
  %set(handles.Phones_charging_slider,'Min',0,'Max',14,'Sliderstep',[1.0,2.0])
