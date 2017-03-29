@@ -710,6 +710,17 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourecent_10','Value', num2str(F3_flourecent_10));
 
+function F3_Accesspoint_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Accesspoint_radio,'BackgroundColor','green');
+    F3_Accesspoint = 6.5; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_Accesspoint = 0; % watt
+end
+set_param('House_model/Floor_3/Accesspoint/F3_Accesspoint','Value', num2str(F3_Accesspoint));
+
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           Plot, Tab 3
