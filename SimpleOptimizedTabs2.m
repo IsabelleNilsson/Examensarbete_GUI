@@ -181,6 +181,7 @@ varargout{1} = handles.output;
    elseif ~bdIsLoaded('House_model')
        open_system('House_model')
    end
+
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
@@ -500,11 +501,10 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
-%  value = round(get(hObject,'Value'))
-%     if value == 0 
-
- Phones_Charging = round(get(hObject,'Value'))
+ F4_Phones_Charging = round(get(hObject,'Value'))
+ F4_Phones_effect = F4_Phones_Charging*45;
  
+ set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
  
 % --- Executes during object creation, after setting all properties.
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
@@ -520,25 +520,18 @@ end
 
 % --- Executes on slider movement.
 function Laptops_charging_slider_Callback(hObject, eventdata, handles)
-% hObject    handle to Laptops_charging_slider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+% SEN: ---- x hur lång tid det har gått eller antal timmar....
+% energy= nr * watt * time/60 kwh
 
 Laptops_Charging = round(get(hObject,'Value'))
-% -------------- x hur lång tid det har gått eller antal timmar....
-% energy= nr * watt * time
-energy_consumption = Laptops_Charging*45;
+Laptop_effect = Laptops_Charging*45;
+
+
+
 
 % --- Executes during object creation, after setting all properties.
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Laptops_charging_slider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
