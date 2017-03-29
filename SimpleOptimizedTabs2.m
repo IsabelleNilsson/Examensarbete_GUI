@@ -504,7 +504,7 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
  F4_Phones_charging = round(get(hObject,'Value'))
  F4_Phones_effect = F4_Phones_charging*45; %watt ändra
  set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
- %set_param('House_model/Floor_4/Accesspoint/F4_Accesspoint','Value', num2str(F4_Phones_effect));
+ 
  
 % --- Executes during object creation, after setting all properties.
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
@@ -526,7 +526,7 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 
 Laptops_Charging = round(get(hObject,'Value'))
 Laptop_effect = Laptops_Charging*45;
-
+%set_param('House_model/Floor_4/Accesspoint/F4_Accesspoint','Value', num2str(Laptop_effect));
 
 
 
