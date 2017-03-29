@@ -526,7 +526,11 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
 Laptops_Charging = round(get(hObject,'Value'))
+% -------------- x hur lång tid det har gått eller antal timmar....
+% energy= nr * watt * time
+energy_consumption = Laptops_Charging*45;
 
 % --- Executes during object creation, after setting all properties.
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
