@@ -171,8 +171,9 @@ varargout{1} = handles.output;
 %--------------- FROM HERE ADDITIONAL BOTTONS ARE ADDED--------------------
 
 
-
+%--------------------------------------------------
 %------------- start/stop simulink ----------------
+%--------------------------------------------------
 
 %---------- Open simulink model if not opened ------
    if bdIsLoaded('House_model')
@@ -181,17 +182,30 @@ varargout{1} = handles.output;
        open_system('House_model')
    end
    
-% ---------------- Run model -------------------
+%---------------- initiation  -----------------
+%------------ Set default values --------------
+
+ % phones charging F4
+ set(handles.Phones_charging_slider, 'Value', 0);
+ numSteps_phone = 25;
+ set(handles.Phones_charging_slider, 'Min', 0);
+ set(handles.Phones_charging_slider, 'Max', numSteps_phone);
+ set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps_phone) , 2/(numSteps_phone) ]);
+ 
+ % laptops charging F4
+ set(handles.Laptops_charging_slider, 'Value', 0);
+ numSteps_laptops = 15;
+ set(handles.Laptops_charging_slider, 'Min', 0);
+ set(handles.Laptops_charging_slider, 'Max', numSteps_laptops);
+ set(handles.Laptops_charging_slider, 'SliderStep', [1/(numSteps_laptops) , 2/(numSteps_laptops) ]);
+ 
+ 
+% ---------------- Run simulinkmodel -------------------
 function Start_Stop_toggle_Callback(hObject, eventdata, handles)
 
 
 button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
-        %------- Set default values -------------
-        set(handles.Phones_charging_slider, 'Value', 0);
-        
-        
-        
         %-------- Start simulation ------------
         set_param('House_model','SimulationCommand','start');
         set(handles.Start_Stop_toggle,'BackgroundColor','green');
@@ -228,10 +242,7 @@ set_param('House_model/Floor_4/Lightening/F4_bulb_1','Value', num2str(F4_bulb_1)
 
 % --- Executes on button press in F4_Bulb_radio_2.
 function F4_Bulb_radio_2_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_2
+
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_2,'BackgroundColor','green');
@@ -244,10 +255,6 @@ set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value', num2str(F4_bulb_2)
 
 % --- Executes on button press in F4_Bulb_radio_3.
 function F4_Bulb_radio_3_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_3
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_3,'BackgroundColor','green');
@@ -258,12 +265,8 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_3','Value', num2str(F4_bulb_3));
 
-% --- Executes on button press in F4_Bulb_radio_4.
+
 function F4_Bulb_radio_4_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_4
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_4,'BackgroundColor','green');
@@ -274,12 +277,9 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_4','Value', num2str(F4_bulb_4));
 
-% --- Executes on button press in F4_Bulb_radio_1.
+
 function F4_Bulb_radio_5_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_1
+
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_5,'BackgroundColor','green');
@@ -290,12 +290,9 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_5','Value', num2str(F4_bulb_5));
 
-% --- Executes on button press in F4_Bulb_radio_6.
+
 function F4_Bulb_radio_6_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_6 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_6
+
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_6,'BackgroundColor','green');
@@ -306,12 +303,9 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_6','Value', num2str(F4_bulb_6));
 
-% --- Executes on button press in F4_Bulb_radio_7.
+
 function F4_Bulb_radio_7_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_7 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_7
+
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_7,'BackgroundColor','green');
@@ -322,12 +316,9 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_7','Value', num2str(F4_bulb_7));
 
-% --- Executes on button press in F4_Bulb_radio_8.
+
 function F4_Bulb_radio_8_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Bulb_radio_8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_8
+
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Bulb_radio_8,'BackgroundColor','green');
@@ -509,26 +500,10 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
-%set(handles.Phones_charging_slider, 'Value', 10);
-
- % set the slider range and step size
 %  value = round(get(hObject,'Value'))
 %     if value == 0 
-%         set(handles.Phones_charging_slider, 'Value', 0);
 
-
-%         fprintf('hej')
-%     end
- 
-%fortsätt här.. utan round 
-% default value in run simulation
-
- numSteps = 14;
- set(handles.Phones_charging_slider, 'Min', 0);
- set(handles.Phones_charging_slider, 'Max', numSteps);
- set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps) , 10/(numSteps) ]);
- 
- Phones_Charging = get(hObject,'Value')
+ Phones_Charging = round(get(hObject,'Value'))
  
  
 % --- Executes during object creation, after setting all properties.
@@ -552,6 +527,10 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
+Laptops_Charging = round(get(hObject,'Value'))
+% -------------- x hur lång tid det har gått eller antal timmar....
+% energy= nr * watt * time
+energy_consumption = Laptops_Charging*45;
 
 % --- Executes during object creation, after setting all properties.
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
