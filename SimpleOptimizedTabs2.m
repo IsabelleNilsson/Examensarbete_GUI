@@ -347,7 +347,7 @@ if button_state == get(hObject,'Max')
     
     
     %ändra watt
-    F4_Accesspoint = 20; % watt
+    F4_Accesspoint = 6.5; % watt
     
     %standby energy
 elseif button_state == get(hObject,'Min')
@@ -492,7 +492,6 @@ F4_Bulb_radio_1_Callback(hObject, eventdata, handles);
 
 %----------------- OUTLET ---------------------------
 
-% --- Executes on slider movement.
 function Phones_charging_slider_Callback(hObject, eventdata, handles)
 % hObject    handle to Phones_charging_slider (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -505,38 +504,26 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
  F4_Phones_effect = F4_Phones_charging*45; %watt ändra
  set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
  
- 
-% --- Executes during object creation, after setting all properties.
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Phones_charging_slider (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
 
-
-% --- Executes on slider movement.
 function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 
 % SEN: ---- x hur lång tid det har gått eller antal timmar....
 % energy= nr * watt * time/60 kwh
 
 Laptops_Charging = round(get(hObject,'Value'))
-Laptop_effect = Laptops_Charging*45;
-%set_param('House_model/Floor_4/Accesspoint/F4_Accesspoint','Value', num2str(Laptop_effect));
+F4_Laptop_effect = Laptops_Charging*45;
+%-------kolla att den funkar
+set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
+ 
 
-
-
-% --- Executes during object creation, after setting all properties.
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
-
-
 
 function Phones_charging_edit_Callback(hObject, eventdata, handles)
 % hObject    handle to Phones_charging_edit (see GCBO)
@@ -547,37 +534,16 @@ function Phones_charging_edit_Callback(hObject, eventdata, handles)
 %        str2double(get(hObject,'String')) returns contents of Phones_charging_edit as a double
 
 
-% --- Executes during object creation, after setting all properties.
 function Phones_charging_edit_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Phones_charging_edit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
 
-
 function Laptops_charging_edit_Callback(hObject, eventdata, handles)
-% hObject    handle to Laptops_charging_edit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of Laptops_charging_edit as text
-%        str2double(get(hObject,'String')) returns contents of Laptops_charging_edit as a double
 
 
-% --- Executes during object creation, after setting all properties.
 function Laptops_charging_edit_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to Laptops_charging_edit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
