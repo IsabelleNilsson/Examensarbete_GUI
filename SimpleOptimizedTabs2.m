@@ -339,7 +339,7 @@ end
 set_param('House_model/Floor_4/Lightening/F4_bulb_8','Value', num2str(F4_bulb_8));
 
 
-%-------------------- Accespoint ----------------------
+%-------------------- Accesspoint ----------------------
 
 % --- Executes on button press in F4_Accesspoint_radio.
 function F4_Accesspoint_radio_Callback(hObject, eventdata, handles)
@@ -618,7 +618,7 @@ end
 
 %---------------- Flourcent ----------------------
 
-% --- Executes on button press in togglebutton1.
+% --- Executes on button press in F3_Fluorscent_toggle_1.
 function F3_Fluorscent_toggle_1_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -630,77 +630,113 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourecent_1','Value', num2str(F3_flourecent_1));
 
-% --- Executes on button press in togglebutton3.
-function togglebutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% --- Executes on button press in F3_Fluorscent_toggle_2.
+function F3_Fluorscent_toggle_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_2,'BackgroundColor','green');
+    F3_flourecent_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_2 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_2','Value', num2str(F3_flourecent_2));
 
-% Hint: get(hObject,'Value') returns toggle state of togglebutton3
+% --- Executes on button press in F3_Fluorscent_toggle_3.
+function F3_Fluorscent_toggle_3_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_3,'BackgroundColor','green');
+    F3_flourecent_3 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_3 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_3','Value', num2str(F3_flourecent_3));
 
+% --- Executes on button press in F3_Fluorscent_toggle_4.
+function F3_Fluorscent_toggle_4_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_4,'BackgroundColor','green');
+    F3_flourecent_4 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_4 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_4','Value', num2str(F3_flourecent_4));
 
-% --- Executes on button press in togglebutton4.
-function togglebutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% --- Executes on button press in F3_Fluorscent_toggle_5.
+function F3_Fluorscent_toggle_5_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_5,'BackgroundColor','green');
+    F3_flourecent_5 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_5 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_5','Value', num2str(F3_flourecent_5));
 
-% Hint: get(hObject,'Value') returns toggle state of togglebutton4
+% --- Executes on button press in F3_Fluorscent_toggle_6.
+function F3_Fluorscent_toggle_6_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_6,'BackgroundColor','green');
+    F3_flourecent_6 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_6 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_6','Value', num2str(F3_flourecent_6));
 
+% --- Executes on button press in F3_Fluorscent_toggle_7.
+function F3_Fluorscent_toggle_7_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_7,'BackgroundColor','green');
+    F3_flourecent_7 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_7 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_7','Value', num2str(F3_flourecent_7));
 
-% --- Executes on button press in togglebutton5.
-function togglebutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton5 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% --- Executes on button press in F3_Fluorscent_toggle_8.
+function F3_Fluorscent_toggle_8_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_8,'BackgroundColor','green');
+    F3_flourecent_8 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_8,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_8 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_8','Value', num2str(F3_flourecent_8));
 
-% Hint: get(hObject,'Value') returns toggle state of togglebutton5
+% --- Executes on button press in F3_Fluorscent_toggle_9.
+function F3_Fluorscent_toggle_9_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_9,'BackgroundColor','green');
+    F3_flourecent_9 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_9,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_9 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_9','Value', num2str(F3_flourecent_9));
 
-
-% --- Executes on button press in togglebutton6.
-function togglebutton6_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton6 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton6
-
-
-% --- Executes on button press in togglebutton7.
-function togglebutton7_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton7 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton7
-
-
-% --- Executes on button press in togglebutton8.
-function togglebutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton8 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton8
-
-
-% --- Executes on button press in togglebutton9.
-function togglebutton9_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton9 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton9
-
-
-% --- Executes on button press in togglebutton10.
-function togglebutton10_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton10
-
+% --- Executes on button press in F3_Fluorscent_toggle_10.
+function F3_Fluorscent_toggle_10_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_Fluorscent_toggle_10,'BackgroundColor','green');
+    F3_flourecent_10 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorscent_toggle_10,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_flourecent_10 = 0; % watt
+end
+set_param('House_model/Floor_3/Lightening/F3_flourecent_10','Value', num2str(F3_flourecent_10));
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -721,12 +757,6 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %BlockTypes = get_param(BlockPaths,'BlockType')
 %BlockTypes = get_param(House_model/F4_bulb,'Scope')
 %rto = get_param(gcb,'simout');
-
-
-
-
-
-
 
 
 
