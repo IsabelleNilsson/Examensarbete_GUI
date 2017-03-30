@@ -176,26 +176,50 @@ varargout{1} = handles.output;
 %--------------------------------------------------
 
 %---------- Open simulink model if not opened ------
-   if bdIsLoaded('House_model')
-       fprintf('open and ready')   
-   elseif ~bdIsLoaded('House_model')
-       open_system('House_model')
-   end
+%    if bdIsLoaded('House_model')
+%        fprintf('open and ready')   
+%    elseif ~bdIsLoaded('House_model')
+%        open_system('House_model')
+%    end
 
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
 
- % phones charging F4
+ %--- Bulbs ---
+ %F4_bulb_1 = 0; 
+ %F4_bulb_2 = 0;
+ %F4_bulb_3 = 0;
+ %F4_bulb_4 = 0;
+ %F4_bulb_5 = 0;
+ %F4_bulb_6 = 0;
+ %F4_bulb_7 = 0;
+ %F4_bulb_8 = 0;
+ 
+ %--- Accesspoint ---
+ %F4_Accesspoint = 0;
+ 
+ %--- Flourcent ---
+ %F4_flourecent_1 = 0;
+ %F4_flourecent_2 = 0;
+ %F4_flourecent_3 = 0;
+ %F4_flourecent_4 = 0;
+ %F4_flourecent_5 = 0;
+ %F4_flourecent_6 = 0;
+ 
+ %--- phones charging F4 ---
  set(handles.Phones_charging_slider, 'Value', 0);
- numSteps_phone = 25;
+ set(handles.Phones_charging_edit,'String', '0');
+ numSteps_phone = 15;
  set(handles.Phones_charging_slider, 'Min', 0);
  set(handles.Phones_charging_slider, 'Max', numSteps_phone);
  set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps_phone) , 2/(numSteps_phone) ]);
+ %sliderValuePhones = get(handles.Phones_charging_slider, 'Value') % example
  
  % laptops charging F4
  set(handles.Laptops_charging_slider, 'Value', 0);
- numSteps_laptops = 15;
+ set(handles.Laptops_charging_edit,'String', '0');
+ numSteps_laptops = 25;
  set(handles.Laptops_charging_slider, 'Min', 0);
  set(handles.Laptops_charging_slider, 'Max', numSteps_laptops);
  set(handles.Laptops_charging_slider, 'SliderStep', [1/(numSteps_laptops) , 2/(numSteps_laptops) ]);
@@ -208,10 +232,27 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
         %-------- Start simulation ------------
-        set_param('House_model','SimulationCommand','start');
-        set(handles.Start_Stop_toggle,'BackgroundColor','green');
+ %       set_param('House_model','SimulationCommand','start');
+         set(handles.Start_Stop_toggle,'BackgroundColor','green');
     elseif button_state == get(hObject,'Min')
-        set_param('House_model','SimulationCommand','stop');
+        
+        % reset Floor 4
+        set(handles.F4_Bulb_radio_1,'Value',0)
+        set(handles.F4_Bulb_radio_2,'Value',0)
+        set(handles.F4_Bulb_radio_3,'Value',0)
+        set(handles.F4_Bulb_radio_4,'Value',0)
+        set(handles.F4_Bulb_radio_5,'Value',0)
+        set(handles.F4_Bulb_radio_6,'Value',0)
+        set(handles.F4_Bulb_radio_7,'Value',0)
+        set(handles.F4_Bulb_radio_8,'Value',0)
+        set(handles.F4_Accesspoint_radio,'Value',0)
+        set(handles.F4_Fluorscent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorscent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorscent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorscent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorscent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorscent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
+   %     set_param('House_model','SimulationCommand','stop');
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
 
@@ -233,11 +274,11 @@ function F4_Bulb_radio_1_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of F4_Bulb_radio_1
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_1,'BackgroundColor','green');
-    F4_bulb_1 = 7; % watt
+    %set(handles.F4_Bulb_radio_1,'BackgroundColor','green');
+   % F4_bulb_1 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_1,'BackgroundColor',[0.94 0.94 0.94]);
-    F4_bulb_1 = 0; % watt
+    %set(handles.F4_Bulb_radio_1,'BackgroundColor',[0.94 0.94 0.94]);
+    % F4_bulb_1 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_1','Value', num2str(F4_bulb_1));
 
@@ -246,10 +287,10 @@ function F4_Bulb_radio_2_Callback(hObject, eventdata, handles)
 
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_2,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_2,'BackgroundColor','green');
     F4_bulb_2 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_2,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_2,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_2 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value', num2str(F4_bulb_2));
@@ -258,10 +299,10 @@ set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value', num2str(F4_bulb_2)
 function F4_Bulb_radio_3_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_3,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_3,'BackgroundColor','green');
     F4_bulb_3 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_3,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_3,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_3 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_3','Value', num2str(F4_bulb_3));
@@ -270,10 +311,10 @@ set_param('House_model/Floor_4/Lightening/F4_bulb_3','Value', num2str(F4_bulb_3)
 function F4_Bulb_radio_4_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_4,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_4,'BackgroundColor','green');
     F4_bulb_4 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_4,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_4,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_4 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_4','Value', num2str(F4_bulb_4));
@@ -283,10 +324,10 @@ function F4_Bulb_radio_5_Callback(hObject, eventdata, handles)
 
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_5,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_5,'BackgroundColor','green');
     F4_bulb_5 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_5,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_5,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_5 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_5','Value', num2str(F4_bulb_5));
@@ -296,10 +337,10 @@ function F4_Bulb_radio_6_Callback(hObject, eventdata, handles)
 
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_6,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_6,'BackgroundColor','green');
     F4_bulb_6 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_6,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_6,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_6 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_6','Value', num2str(F4_bulb_6));
@@ -309,10 +350,10 @@ function F4_Bulb_radio_7_Callback(hObject, eventdata, handles)
 
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_7,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_7,'BackgroundColor','green');
     F4_bulb_7 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_7,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_7,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_7 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_7','Value', num2str(F4_bulb_7));
@@ -322,10 +363,10 @@ function F4_Bulb_radio_8_Callback(hObject, eventdata, handles)
 
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Bulb_radio_8,'BackgroundColor','green');
+    %set(handles.F4_Bulb_radio_8,'BackgroundColor','green');
     F4_bulb_8 = 7; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Bulb_radio_8,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Bulb_radio_8,'BackgroundColor',[0.94 0.94 0.94]);
     F4_bulb_8 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_bulb_8','Value', num2str(F4_bulb_8));
@@ -343,15 +384,14 @@ function F4_Accesspoint_radio_Callback(hObject, eventdata, handles)
 %ändra namn och parametrar
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Accesspoint_radio,'BackgroundColor','green');
-    
+    %set(handles.F4_Accesspoint_radio,'BackgroundColor','green');
     
     %ändra watt
     F4_Accesspoint = 6.5; % watt
     
     %standby energy
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F4_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
     F4_Accesspoint = 0; % watt
 end
 set_param('House_model/Floor_4/Accesspoint/F4_Accesspoint','Value', num2str(F4_Accesspoint));
@@ -499,10 +539,13 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
- F4_Phones_charging = round(get(hObject,'Value'))
- F4_Phones_effect = F4_Phones_charging*45; %watt ändra
- set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
+ maxcharging_phone = 2.4*5;
+ F4_Phones_charging = round(get(hObject,'Value'));
+ F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
+ %set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
+ 
+ sliderValue = num2str(F4_Phones_charging);
+ set(handles.Phones_charging_edit,'String', sliderValue);
  
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
@@ -514,11 +557,12 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 % SEN: ---- x hur lång tid det har gått eller antal timmar....
 % energy= nr * watt * time/60 kwh
 
-Laptops_Charging = round(get(hObject,'Value'))
+Laptops_Charging = round(get(hObject,'Value'));
 F4_Laptop_effect = Laptops_Charging*45;
 %-------kolla att den funkar
-set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
- 
+%set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
+ sliderValue = num2str(Laptops_Charging);
+ set(handles.Laptops_charging_edit,'String', sliderValue);
 
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
