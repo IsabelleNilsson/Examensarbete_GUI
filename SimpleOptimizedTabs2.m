@@ -176,26 +176,31 @@ varargout{1} = handles.output;
 %--------------------------------------------------
 
 %---------- Open simulink model if not opened ------
-   if bdIsLoaded('House_model')
-       fprintf('open and ready')   
-   elseif ~bdIsLoaded('House_model')
-       open_system('House_model')
-   end
+%    if bdIsLoaded('House_model')
+%        fprintf('open and ready')   
+%    elseif ~bdIsLoaded('House_model')
+%        open_system('House_model')
+%    end
 
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
 
+ % 
+ 
  % phones charging F4
  set(handles.Phones_charging_slider, 'Value', 0);
- numSteps_phone = 25;
+ set(handles.Phones_charging_edit,'String', '0');
+ numSteps_phone = 15;
  set(handles.Phones_charging_slider, 'Min', 0);
  set(handles.Phones_charging_slider, 'Max', numSteps_phone);
  set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps_phone) , 2/(numSteps_phone) ]);
+ %sliderValuePhones = get(handles.Phones_charging_slider, 'Value') % example
  
  % laptops charging F4
  set(handles.Laptops_charging_slider, 'Value', 0);
- numSteps_laptops = 15;
+ set(handles.Laptops_charging_edit,'String', '0');
+ numSteps_laptops = 25;
  set(handles.Laptops_charging_slider, 'Min', 0);
  set(handles.Laptops_charging_slider, 'Max', numSteps_laptops);
  set(handles.Laptops_charging_slider, 'SliderStep', [1/(numSteps_laptops) , 2/(numSteps_laptops) ]);
@@ -344,7 +349,6 @@ function F4_Accesspoint_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     set(handles.F4_Accesspoint_radio,'BackgroundColor','green');
-    
     
     %ändra watt
     F4_Accesspoint = 6.5; % watt
@@ -499,10 +503,13 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
- F4_Phones_charging = round(get(hObject,'Value'))
- F4_Phones_effect = F4_Phones_charging*45; %watt ändra
- set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
+ maxcharging_phone = 2.4*5;
+ F4_Phones_charging = round(get(hObject,'Value'));
+ F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
+ %set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
+ 
+ sliderValue = num2str(F4_Phones_charging);
+ set(handles.Phones_charging_edit,'String', sliderValue);
  
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
@@ -514,11 +521,12 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 % SEN: ---- x hur lång tid det har gått eller antal timmar....
 % energy= nr * watt * time/60 kwh
 
-Laptops_Charging = round(get(hObject,'Value'))
+Laptops_Charging = round(get(hObject,'Value'));
 F4_Laptop_effect = Laptops_Charging*45;
 %-------kolla att den funkar
-set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
- 
+%set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
+ sliderValue = num2str(Laptops_Charging);
+ set(handles.Laptops_charging_edit,'String', sliderValue);
 
 function Laptops_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
