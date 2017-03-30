@@ -652,30 +652,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourecent_8','Value', num2str(F3_flourecent_8));
 
-% --- Executes on button press in F3_Fluorscent_toggle_9.
-function F3_Fluorscent_toggle_9_Callback(hObject, eventdata, handles)
-button_state = get(hObject,'Value');
-if button_state == get(hObject,'Max')
-    set(handles.F3_Fluorscent_toggle_9,'BackgroundColor','green');
-    F3_flourecent_9 = 36; % watt
-elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorscent_toggle_9,'BackgroundColor',[0.94 0.94 0.94]);
-    F3_flourecent_9 = 0; % watt
-end
-set_param('House_model/Floor_3/Lightening/F3_flourecent_9','Value', num2str(F3_flourecent_9));
-
-% --- Executes on button press in F3_Fluorscent_toggle_10.
-function F3_Fluorscent_toggle_10_Callback(hObject, eventdata, handles)
-button_state = get(hObject,'Value');
-if button_state == get(hObject,'Max')
-    set(handles.F3_Fluorscent_toggle_10,'BackgroundColor','green');
-    F3_flourecent_10 = 36; % watt
-elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorscent_toggle_10,'BackgroundColor',[0.94 0.94 0.94]);
-    F3_flourecent_10 = 0; % watt
-end
-set_param('House_model/Floor_3/Lightening/F3_flourecent_10','Value', num2str(F3_flourecent_10));
-
 function F3_Accesspoint_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
