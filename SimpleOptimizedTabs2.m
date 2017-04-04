@@ -208,7 +208,7 @@ varargout{1} = handles.output;
  set_param('House_model/Floor_4/Lightening/F4_flourescent_6','Value','0')
  
  %--- phones charging F4 ---
- set(handles.Phones_charging_slider, 'Value', 0);
+ set(handles.Phones_charging_slider, 'value', 0);
  set(handles.Phones_charging_edit,'String', '0');
  numSteps_phone = 15;
  set(handles.Phones_charging_slider, 'Min', 0);
@@ -251,10 +251,15 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         set(handles.F4_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.Phones_charging_slider, 'Value', 0);
+        set(handles.Phones_charging_slider, 'value', 0);
         set(handles.Phones_charging_edit,'String', '0');
         set(handles.Laptops_charging_slider, 'Value', 0);
         set(handles.Laptops_charging_edit,'String', '0');
+        
+        %continue here
+        set_param('House_model/Floor_4/Outlet/F4_Phones','value', '0');
+        set_param('House_model/Floor_4/Outlet/F4_Laptops','value', '0');
+        
    %    set_param('House_model','SimulationCommand','stop');
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
@@ -378,31 +383,23 @@ end
 set_param('House_model/Floor_4/Lightening/F4_bulb_8','Value', num2str(F4_bulb_8));
 
 
+
 %-------------------- Accesspoint ----------------------
 
 % --- Executes on button press in F4_Accesspoint_radio.
 function F4_Accesspoint_radio_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_Accesspoint_radio (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of F4_Accesspoint_radio
-%ändra namn och parametrar
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
     %set(handles.F4_Accesspoint_radio,'BackgroundColor','green');
-    
-    %ändra watt
-    F4_Accesspoint = 6.5; % watt
+    F4_accesspoint = 6.5; % watt
     
     %standby energy
 elseif button_state == get(hObject,'Min')
     %set(handles.F4_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
-    F4_Accesspoint = 0; % watt
+    F4_accesspoint = 0; % watt
 end
-set_param('House_model/Floor_4/Accesspoint/F4_Accesspoint','Value', num2str(F4_Accesspoint));
-
-
+set_param('House_model/Floor_4/Accesspoint/F4_accesspoint','Value', num2str(F4_accesspoint));
 
 
 
@@ -549,7 +546,7 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
  maxcharging_phone = 2.4*5;
  F4_Phones_charging = round(get(hObject,'Value'));
  F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
- %set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
+ set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
  
  sliderValue = num2str(F4_Phones_charging);
  set(handles.Phones_charging_edit,'String', sliderValue);
@@ -564,10 +561,10 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 % SEN: ---- x hur lång tid det har gått eller antal timmar....
 % energy= nr * watt * time/60 kwh
 
-Laptops_Charging = round(get(hObject,'Value'));
-F4_Laptop_effect = Laptops_Charging*45;
+ Laptops_Charging = round(get(hObject,'Value'));
+ F4_Laptop_effect = Laptops_Charging*45;
 %-------kolla att den funkar
-%set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
+ set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
  sliderValue = num2str(Laptops_Charging);
  set(handles.Laptops_charging_edit,'String', sliderValue);
 
