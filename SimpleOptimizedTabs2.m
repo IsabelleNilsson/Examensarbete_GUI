@@ -187,28 +187,25 @@ varargout{1} = handles.output;
 %------------ Set default values --------------
 
  %--- Bulbs ---
- fprintf('hej')
- F4_bulb_1 = 0;
- fprintf('hejdaaaa')
- 
- F4_bulb_2 = 0;
- F4_bulb_3 = 0;
- F4_bulb_4 = 0;
- F4_bulb_5 = 0;
- F4_bulb_6 = 0;
- F4_bulb_7 = 0;
- F4_bulb_8 = 0;
+ set_param('House_model/Floor_4/Lightening/F4_bulb_1','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_3','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_4','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_5','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_6','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_7','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_bulb_8','Value','0')
  
  %--- Accesspoint ---
- F4_Accesspoint = 0;
+ set_param('House_model/Floor_4/Accesspoint/F4_accesspoint','Value','0')
  
  %--- Flourcent ---
- F4_flourescent_1 = 0;
- F4_flourescent_2 = 0;
- F4_flourescent_3 = 0;
- F4_flourescent_4 = 0;
- F4_flourescent_5 = 0;
- F4_flourescent_6 = 0;
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_1','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_2','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_3','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_4','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_5','Value','0')
+ set_param('House_model/Floor_4/Lightening/F4_flourescent_6','Value','0')
  
  %--- phones charging F4 ---
  set(handles.Phones_charging_slider, 'Value', 0);

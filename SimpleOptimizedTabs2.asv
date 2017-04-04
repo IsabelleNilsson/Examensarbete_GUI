@@ -176,18 +176,23 @@ varargout{1} = handles.output;
 %--------------------------------------------------
 
 %---------- Open simulink model if not opened ------
-%    if bdIsLoaded('House_model')
-%        fprintf('open and ready')   
-%    elseif ~bdIsLoaded('House_model')
-%        open_system('House_model')
-%    end
+   if bdIsLoaded('House_model')
+       fprintf('open and ready')   
+   elseif ~bdIsLoaded('House_model')
+       open_system('House_model')
+   end
 
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
 
  %--- Bulbs ---
- F4_bulb_1 = 0; 
+ fprintf('hej\n')
+ F4_bulb_1 = 0;
+ fprintf('hejdaaaa\n')
+ set_param('House_model/Floor_4/Lightening/','Value','25')
+ fprintf('........')
+ 
  F4_bulb_2 = 0;
  F4_bulb_3 = 0;
  F4_bulb_4 = 0;
@@ -228,8 +233,7 @@ varargout{1} = handles.output;
 % ---------------- Run simulinkmodel -------------------
 function Start_Stop_toggle_Callback(hObject, eventdata, handles)
 
-
-button_state = get(hObject,'Value');
+    button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
         %-------- Start simulation ------------
  %       set_param('House_model','SimulationCommand','start');
