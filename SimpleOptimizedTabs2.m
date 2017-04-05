@@ -248,7 +248,7 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         set(handles.F4_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+        set(handles.F4_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.F4_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
         set(handles.Phones_charging_slider, 'value', 0);
@@ -472,18 +472,18 @@ set_param('House_model/Floor_4/Lightening/F4_flourescent_3','Value', num2str(F4_
 %b.Callback = @(es,ed) updateSystem(h,tf(wn^2,[1,2*(es.Value)*wn,wn^2]));
 
 
-% --- Executes on button press in F4_fluorescent_toggle_4.
+% --- Executes on button press in f4_fluorescent_toggle_5.
 function F4_Fluorescent_toggle_4_Callback(hObject, eventdata, handles)
-% hObject    handle to F4_fluorescent_toggle_4 (see GCBO)
+% hObject    handle to f4_fluorescent_toggle_5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % Hint: get(hObject,'Value') returns toggle state of togglebutton1
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F4_Fluorescent_toggle_4,'BackgroundColor','green');
+    set(handles.F4_Fluorescent_toggle_5,'BackgroundColor','green');
     F4_flourescent_4 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F4_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F4_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
     F4_flourescent_4 = 0; % watt
 end
 set_param('House_model/Floor_4/Lightening/F4_flourescent_4','Value', num2str(F4_flourescent_4));
@@ -602,9 +602,7 @@ end
 %*************** FLOOR 3 **********************
 %**********************************************
 
-%---------------- Flourcent ----------------------
-
-% --- Executes on button press in F3_Fluorescent_toggle_1.
+%---------------- Flourescents ----------------------
 function F3_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -616,7 +614,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_1','Value', num2str(F3_flourescent_1));
 
-% --- Executes on button press in F3_Fluorescent_toggle_2.
 function F3_Fluorescent_toggle_2_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -628,8 +625,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_2','Value', num2str(F3_flourescent_2));
 
-
-% --- Executes on button press in F3_Fluorescent_toggle_3.
 function F3_Fluorescent_toggle_3_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -640,7 +635,6 @@ elseif button_state == get(hObject,'Min')
     F3_flourescent_3 = 0; % watt
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_3','Value', num2str(F3_flourescent_3));
-
 
 function F3_Fluorescent_toggle_4_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
@@ -653,7 +647,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_4','Value', num2str(F3_flourescent_4));
 
-% --- Executes on button press in F3_Fluorescent_toggle_5.
 function F3_Fluorescent_toggle_5_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -665,7 +658,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_5','Value', num2str(F3_flourescent_5));
 
-% --- Executes on button press in F3_Fluorescent_toggle_6.
 function F3_Fluorescent_toggle_6_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -677,7 +669,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_6','Value', num2str(F3_flourescent_6));
 
-% --- Executes on button press in F3_Fluorescent_toggle_7.
 function F3_Fluorescent_toggle_7_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -689,9 +680,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_7','Value', num2str(F3_flourescent_7));
 
-% continue here
-
-% --- Executes on button press in F3_Fluorescent_toggle_8.
 function F3_Fluorescent_toggle_8_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -712,7 +700,19 @@ elseif button_state == get(hObject,'Min')
     set(handles.F3_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
     F3_Accesspoint = 0; % watt
 end
-set_param('House_model/Floor_3/Accesspoint/F3_Accesspoint','Value', num2str(F3_Accesspoint));
+set_param('House_model/Floor_3/Accesspoint/F3_accesspoint_1','Value', num2str(F3_Accesspoint));
+
+% --- Executes on button press in F3_AC_toggle.
+function F3_AC_toggle_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F3_AC_toggle,'BackgroundColor','green');
+    F3_AC = 3000; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_AC_toggle,'BackgroundColor',[0.94 0.94 0.94]);
+    F3_AC = 0; % watt
+end
+set_param('House_model/Floor_3/AC/F3_AC_1','Value', num2str(F3_AC));
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -733,5 +733,14 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %BlockTypes = get_param(BlockPaths,'BlockType')
 %BlockTypes = get_param(House_model/F4_bulb,'Scope')
 %rto = get_param(gcb,'simout');
+
+%maskio - sikio
+%macho - jicho
+%mapoa - poa
+%mdomo
+%nuele
+%chingo
+%bega
+%mkono
 
 
