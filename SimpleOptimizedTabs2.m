@@ -186,6 +186,23 @@ varargout{1} = handles.output;
 %---------------- initiation  -----------------
 %------------ Set default values --------------
 
+        set(findobj('style','pushbutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'Value', 0);
+        set(findobj('style','radiobutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
+        set(findobj('style','togglebutton'), 'Value', 0);
+        set(findobj('style','edit'), 'String', {'0'});
+        %set(findobj('style','text'), 'String', {'0'});
+        
+        %finding all blocks in simulink
+        block_name = find_system('House_model', 'BlockType', 'Constant');
+        n=length(block_name);
+        for i=1:1:n
+            set_param(block_name{i,1},'Value','0') %% Changing ‘Value’ of all the ‘Constant’ blocks to 0
+        end
+%set(findobj('style','listbox'), 'String', {''}, 'Min', 0, 'Max', 1, 'Value', 1, 'ListBoxTop', 1);
+
+%om ovanstående funkar ta bort nedan..
  %--- Bulbs ---
  set_param('House_model/Floor_4/Lightening/F4_bulb_1','Value','0')
  set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value','0')
@@ -235,30 +252,22 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
          set(handles.Start_Stop_toggle,'BackgroundColor','green');
     elseif button_state == get(hObject,'Min')
         
-        % reset Floor 4
-        set(handles.F4_Bulb_radio_1,'Value',0)
-        set(handles.F4_Bulb_radio_2,'Value',0)
-        set(handles.F4_Bulb_radio_3,'Value',0)
-        set(handles.F4_Bulb_radio_4,'Value',0)
-        set(handles.F4_Bulb_radio_5,'Value',0)
-        set(handles.F4_Bulb_radio_6,'Value',0)
-        set(handles.F4_Bulb_radio_7,'Value',0)
-        set(handles.F4_Bulb_radio_8,'Value',0)
-        set(handles.F4_Accesspoint_radio,'Value',0)
-        set(handles.F4_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.F4_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
-        set(handles.Phones_charging_slider, 'value', 0);
-        set(handles.Phones_charging_edit,'String', '0');
-        set(handles.Laptops_charging_slider, 'Value', 0);
-        set(handles.Laptops_charging_edit,'String', '0');
+        set(findobj('style','pushbutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'Value', 0);
+        set(findobj('style','radiobutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
+        set(findobj('style','togglebutton'), 'Value', 0);
+        set(findobj('style','edit'), 'String', {'0'});
+        %set(findobj('style','text'), 'String', {''});
         
-        %continue here
-        set_param('House_model/Floor_4/Outlet/F4_Phones','value', '0');
-        set_param('House_model/Floor_4/Outlet/F4_Laptops','value', '0');
+        %finding all blocks in simulink
+        %finns redan ovanför
+        block_name = find_system('House_model', 'BlockType', 'Constant');
+        n=length(block_name);
+        for i=1:1:n
+            set_param(block_name{i,1},'Value','0') %% Changing ‘Value’ of all the ‘Constant’ blocks to 0
+        end
+        
         
    %    set_param('House_model','SimulationCommand','stop');
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
@@ -597,7 +606,9 @@ end
 %*************** FLOOR 3 **********************
 %**********************************************
 
+
 %---------------- Flourescents ----------------------
+
 function F3_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -690,18 +701,23 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/Lightening/F3_flourescent_8','Value', num2str(F3_flourescent_8));
 
+
+%------------  Accesspoint  ----------------------
+
 function F3_Accesspoint_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(handles.F3_Accesspoint_radio,'BackgroundColor','green');
+    %set(handles.F3_Accesspoint_radio,'BackgroundColor','green');
     F3_Accesspoint = 6.5; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    %set(handles.F3_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
     F3_Accesspoint = 0; % watt
 end
 set_param('House_model/Floor_3/Accesspoint/F3_accesspoint_1','Value', num2str(F3_Accesspoint));
 
-% --- Executes on button press in F3_AC_toggle.
+
+% --------------------- AC ------------------
+
 function F3_AC_toggle_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
