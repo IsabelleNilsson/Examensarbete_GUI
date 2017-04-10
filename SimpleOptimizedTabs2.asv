@@ -185,44 +185,22 @@ varargout{1} = handles.output;
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
-
-        set(findobj('style','pushbutton'), 'Value', 0);
-        set(findobj('style','togglebutton'), 'Value', 0);
-        set(findobj('style','radiobutton'), 'Value', 0);
-        set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
-        set(findobj('style','togglebutton'), 'Value', 0);
-        set(findobj('style','edit'), 'String', {''});
-        set(findobj('style','text'), 'String', {''});
         
-        %finding all blocks in simulink
+        % reset value in GUI
+        set(findobj('style','pushbutton'), 'Value', 0);
+        set(findobj('style','radiobutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'Value', 0);
+        set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
+        set(findobj('style','Slider'), 'Value', 0);
+        set(findobj('style','edit'), 'String', {'0'});
+        
+        % reset value in Simulink (Constant blocks)
         block_name = find_system('House_model', 'BlockType', 'Constant');
         n=length(block_name);
         for i=1:1:n
-            set_param(block_name{i,1},'Value','0') %% Changing ‘Value’ of all the ‘Constant’ blocks to 0
+            set_param(block_name{i,1},'Value','0') 
         end
-%set(findobj('style','listbox'), 'String', {''}, 'Min', 0, 'Max', 1, 'Value', 1, 'ListBoxTop', 1);
 
-%om ovanstående funkar ta bort nedan..
- %--- Bulbs ---
- set_param('House_model/Floor_4/Lightening/F4_bulb_1','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_2','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_3','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_4','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_5','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_6','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_7','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_bulb_8','Value','0')
- 
- %--- Accesspoint ---
- set_param('House_model/Floor_4/Accesspoint/F4_accesspoint','Value','0')
- 
- %--- Flourcent ---
- set_param('House_model/Floor_4/Lightening/F4_flourescent_1','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_flourescent_2','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_flourescent_3','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_flourescent_4','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_flourescent_5','Value','0')
- set_param('House_model/Floor_4/Lightening/F4_flourescent_6','Value','0')
  
  %--- phones charging F4 ---
  set(handles.Phones_charging_slider, 'value', 0);
@@ -251,16 +229,16 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
  %       set_param('House_model','SimulationCommand','start');
          set(handles.Start_Stop_toggle,'BackgroundColor','green');
     elseif button_state == get(hObject,'Min')
-        
+        % reset GUI
         set(findobj('style','pushbutton'), 'Value', 0);
         set(findobj('style','togglebutton'), 'Value', 0);
         set(findobj('style','radiobutton'), 'Value', 0);
         set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
         set(findobj('style','togglebutton'), 'Value', 0);
-        set(findobj('style','edit'), 'String', {''});
-        set(findobj('style','text'), 'String', {''});
+        set(findobj('style','edit'), 'String', {'0'});
+        set(findobj('style','Slider'), 'Value', 0);
         
-        %finding all blocks in simulink
+        % reset Simulink (Constant blocks)
         block_name = find_system('House_model', 'BlockType', 'Constant');
         n=length(block_name);
         for i=1:1:n
@@ -552,8 +530,21 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
  F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
  set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
  
- sliderValue = num2str(F4_Phones_charging);
+ sliderValue = num2str(F4_Phones_charging)
  set(handles.Phones_charging_edit,'String', sliderValue);
+
+%  set(handles.Phones_charging_slider, 'value', 0);
+%  set(handles.Phones_charging_edit,'String', '0');
+%  numSteps_phone = 15;
+%  set(handles.Phones_charging_slider, 'Min', 0);
+%  set(handles.Phones_charging_slider, 'Max', numSteps_phone);
+%  set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps_phone) , 2/(numSteps_phone) ]);
+%  %sliderValuePhones = get(handles.Phones_charging_slider, 'Value') % example
+%  
+ 
+ 
+ 
+ 
  
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
@@ -728,6 +719,54 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_3/AC/F3_AC_1','Value', num2str(F3_AC));
 
+
+
+
+% ------------------ Music -------------------
+% --- Executes on button press in checkbox2.
+function checkbox2_Callback(hObject, eventdata, handles)
+% hObject    handle to checkbox2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of checkbox2
+
+set_param('House_model/Floor_3/Music/F3_subwoofer','Value', 115);
+set_param('House_model/Floor_3/Music/F3_subwoofer','Value', 115);
+set_param('House_model/Floor_3/Music/F3_subwoofer','Value', 115);
+
+
+
+
+F3_speakers
+
+
+
+
+
+% --- Executes on slider movement.
+function slider3_Callback(hObject, eventdata, handles)
+% hObject    handle to slider3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           Plot, Tab 3
@@ -752,9 +791,11 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %macho - jicho
 %mapoa - poa
 %mdomo
-%nuele
-%chingo
+%nuele - Hår
+%chingo - hals
 %bega
 %mkono
+
+
 
 
