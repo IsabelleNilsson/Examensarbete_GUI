@@ -227,7 +227,7 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
     button_state = get(hObject,'Value');
     if button_state == get(hObject,'Max')
         %-------- Start simulation ------------
- %       set_param('House_model','SimulationCommand','start');
+         set_param('House_model','SimulationCommand','start');
          set(handles.Start_Stop_toggle,'BackgroundColor','green');
     elseif button_state == get(hObject,'Min')
         % reset GUI
@@ -248,7 +248,11 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         end
         
         
-   %    set_param('House_model','SimulationCommand','stop');
+        set_param('House_model','SimulationCommand','stop');
+        %plot(ScopeData.time, ScopeData.signals.values)
+        %funkar inte nu eftersom värdena inte kommit in än tror jag* 
+% ------------ Continue here ------------------------
+        plot(F4_E.time, F4_E.signals.values)
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
 
@@ -725,18 +729,10 @@ set_param('House_model/Floor_3/AC/F3_AC_1','Value', num2str(F3_AC));
 
 
 % ------------------ Music -------------------
-% --- Executes on button press in checkbox2.
-function checkbox2_Callback(hObject, eventdata, handles)
-% hObject    handle to checkbox2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of checkbox2
+% --- Executes on button press in F3_Music_checkbox.
+function F3_Music_checkbox_Callback(hObject, eventdata, handles)
  
-
-% ---------- Panel is not working --------------------------
-%----------- Continue here -------------------------------
-ON = get(handles.checkbox2, 'Value');
+ON = get(handles.F3_Music_checkbox, 'Value');
 if ON
     set_param('House_model/Floor_3/Music/F3_subwoofer','Value', '115');
     set_param('House_model/Floor_3/Music/F3_reciver','Value', '200');
@@ -749,11 +745,12 @@ end
 
 
 
+%----------- Continue here -------------------------------
 
 
-
-
-
+%------------- Volyme ------------------
+%           More volyme is more effect
+%------------- Do it? ------------------
 
 % --- Executes on slider movement.
 function slider3_Callback(hObject, eventdata, handles)
