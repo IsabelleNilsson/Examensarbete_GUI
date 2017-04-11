@@ -188,6 +188,7 @@ varargout{1} = handles.output;
         
         % reset value in GUI
         set(findobj('style','pushbutton'), 'Value', 0);
+        set(findobj('style','checkbox'), 'Value', 0);
         set(findobj('style','radiobutton'), 'Value', 0);
         set(findobj('style','togglebutton'), 'Value', 0);
         set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
@@ -231,6 +232,7 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
     elseif button_state == get(hObject,'Min')
         % reset GUI
         set(findobj('style','pushbutton'), 'Value', 0);
+        set(findobj('style','checkbox'), 'Value', 0);
         set(findobj('style','togglebutton'), 'Value', 0);
         set(findobj('style','radiobutton'), 'Value', 0);
         set(findobj('style','togglebutton'), 'BackgroundColor',[0.94 0.94 0.94]);
@@ -734,11 +736,16 @@ function checkbox2_Callback(hObject, eventdata, handles)
 
 % ---------- Panel is not working --------------------------
 %----------- Continue here -------------------------------
-
-set_param('House_model/Floor_3/Music/F3_subwoofer','Value', 115);
-set_param('House_model/Floor_3/Music/F3_reciver','Value', 200);
-set_param('House_model/Floor_3/Music/F3_speakers','Value', 30);
-
+ON = get(handles.checkbox2, 'Value');
+if ON
+    set_param('House_model/Floor_3/Music/F3_subwoofer','Value', '115');
+    set_param('House_model/Floor_3/Music/F3_reciver','Value', '200');
+    set_param('House_model/Floor_3/Music/F3_speakers','Value', '30');
+else 
+    set_param('House_model/Floor_3/Music/F3_subwoofer','Value', '0');
+    set_param('House_model/Floor_3/Music/F3_reciver','Value', '0');
+    set_param('House_model/Floor_3/Music/F3_speakers','Value', '0');
+end
 
 
 
