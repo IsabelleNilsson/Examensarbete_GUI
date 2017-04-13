@@ -250,9 +250,13 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         
         set_param('House_model','SimulationCommand','stop');
         %plot(ScopeData.time, ScopeData.signals.values)
-        %plot(F4_E.time, F4_E.signals.values)
+        %funkar inte nu eftersom värdena inte kommit in än tror jag* 
+% ------------ Continue here ------------------------
+        
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
+        
     end
+    
 
 %**********************************************
 %*************** FLOOR 4 **********************
@@ -784,6 +788,27 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 % Hint: place code in OpeningFcn to populate axes4
+
+
+
+% -------- Continue here ---------------
+%---------------------------------------
+
+handles=guidata(hObject);
+
+x=[1,1,1];
+y=[0,1,2];
+plot(x,y,'parent',handles.axes4)
+
+guidata(hObject,handles);
+
+
+%sim_status = get_param('House_model','SimulationStatus')
+%if sim_status == 'stopped'
+%    fprintf('Den kommer in i axes4')
+%    plot(F4_E.time, F4_E.signals.values)
+%end
+
 %rto = get_param(gcb,'RuntimeObject');
 %blk = 'House_model/F4_bulb';
 %event = 'PostOutputs';

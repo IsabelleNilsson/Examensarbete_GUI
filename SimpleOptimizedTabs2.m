@@ -252,9 +252,11 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         %plot(ScopeData.time, ScopeData.signals.values)
         %funkar inte nu eftersom värdena inte kommit in än tror jag* 
 % ------------ Continue here ------------------------
-        plot(F4_E.time, F4_E.signals.values)
+        
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
+        
     end
+    
 
 %**********************************************
 %*************** FLOOR 4 **********************
@@ -451,17 +453,17 @@ set_param('House_model/Floor_4/Lightening/F4_flourescent_3','Value', num2str(F4_
 % h = plot(ax,sys);
 % setoptions(h,'XLim',[0,10],'YLim',[0,2]);
 %b.Callback = @(es,ed) updateSystem(h,wn^2*2*(es.Value)*wn);
-% zeta = .5;                           % Damping Ratio
-% wn = 2;                              % Natural Frequency
-% sys = tf(wn^2,[1,2*zeta*wn,wn^2]);
-% f = figure;
-% ax = axes('Parent',f,'position',[0.13 0.39  0.77 0.54]);
-% h = stepplot(ax,sys);
-%
-% setoptions(h,'XLim',[0,10],'YLim',[0,2]);
-%b = uicontrol('Parent',f,'Style','slider','Position',[81,54,419,23],...
-%              'value',zeta, 'min',0, 'max',1);
-%b.Callback = @(es,ed) updateSystem(h,tf(wn^2,[1,2*(es.Value)*wn,wn^2]));
+%  zeta = .5;                           % Damping Ratio
+%  wn = 2;                              % Natural Frequency
+%  sys = tf(wn^2,[1,2*zeta*wn,wn^2]);
+%  f = figure;
+%  ax = axes('Parent',f,'position',[0.13 0.39  0.77 0.54]);
+%  h = stepplot(ax,sys);
+% 
+%  setoptions(h,'XLim',[0,10],'YLim',[0,2]);
+% b = uicontrol('Parent',f)%,'Style','slider','Position',[81,54,419,23],...
+%               %'value',zeta, 'min',0, 'max',1);
+% b.Callback = @(es,ed) updateSystem(h,tf(wn^2,[1,2*(es.Value)*wn,wn^2]));
 
 
 % --- Executes on button press in f3_fluorescent_toggle_5.
@@ -786,6 +788,27 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 % Hint: place code in OpeningFcn to populate axes4
+
+
+
+% -------- Continue here ---------------
+%---------------------------------------
+fprintf('hej')
+handles=guidata(hObject);
+
+x=[1,1,1];
+y=[0,1,2];
+plot(x,y,'parent',handles.axes4)
+
+guidata(hObject,handles);
+
+
+%sim_status = get_param('House_model','SimulationStatus')
+%if sim_status == 'stopped'
+%    fprintf('Den kommer in i axes4')
+%    plot(F4_E.time, F4_E.signals.values)
+%end
+
 %rto = get_param(gcb,'RuntimeObject');
 %blk = 'House_model/F4_bulb';
 %event = 'PostOutputs';
