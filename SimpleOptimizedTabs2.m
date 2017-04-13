@@ -768,11 +768,31 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
 
+%**********************************************
+%*************** FLOOR 2 **********************
+%**********************************************
+
+
+%---------------- Flourescents ----------------------
+
+function F2_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_1,'BackgroundColor','green');
+    F2_flourescent_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorescent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
+
+
+
 
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Plot, Tab 3
+%           Plot, Tab 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes during object creation, after setting all properties.
@@ -801,103 +821,3 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 
 
 
-
-
-
-% --- Executes on button press in togglebutton30.
-function togglebutton30_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton30 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton30
-
-
-% --- Executes on button press in togglebutton31.
-function togglebutton31_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton31 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton31
-
-
-% --- Executes on button press in togglebutton36.
-function togglebutton36_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton36 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton36
-
-
-% --- Executes on button press in togglebutton37.
-function togglebutton37_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton37 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton37
-
-
-% --- Executes on button press in togglebutton35.
-function togglebutton35_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton35 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton35
-
-
-% --- Executes on button press in togglebutton32.
-function togglebutton32_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton32 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton32
-
-
-% --- Executes on button press in radiobutton34.
-function radiobutton34_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton34 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of radiobutton34
-
-
-% --- Executes on button press in radiobutton33.
-function radiobutton33_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton33 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of radiobutton33
-
-
-% --- Executes on button press in radiobutton35.
-function radiobutton35_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton35 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of radiobutton35
-
-
-% --- Executes on button press in togglebutton33.
-function togglebutton33_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton33 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton33
-
-
-% --- Executes on button press in togglebutton34.
-function togglebutton34_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton34 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton34
