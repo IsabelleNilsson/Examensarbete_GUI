@@ -531,7 +531,7 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
- maxcharging_phone = 2.4*5;
+ maxcharging_phone = 2.4*5;         %% WHY? / Josefine
  F4_Phones_charging = round(get(hObject,'Value'));
  F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
  set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
@@ -547,10 +547,6 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 %  set(handles.Phones_charging_slider, 'SliderStep', [1/(numSteps_phone) , 2/(numSteps_phone) ]);
 %  %sliderValuePhones = get(handles.Phones_charging_slider, 'Value') % example
 %  
- 
- 
- 
- 
  
 function Phones_charging_slider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
@@ -574,12 +570,6 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 function Phones_charging_edit_Callback(hObject, eventdata, handles)
-% hObject    handle to Phones_charging_edit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of Phones_charging_edit as text
-%        str2double(get(hObject,'String')) returns contents of Phones_charging_edit as a double
 
 
 function Phones_charging_edit_CreateFcn(hObject, eventdata, handles)
@@ -773,7 +763,7 @@ end
 %**********************************************
 
 
-%---------------- Flourescents ----------------------
+%---------------- ROOM 1; Socialroom ----------------------
 
 function F2_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
@@ -786,7 +776,239 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
 
+function F2_Fluorescent_toggle_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_2,'BackgroundColor','green');
+    F2_flourescent_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_1/F2_flourescent_2','Value', num2str(F2_flourescent_2));
 
+function F2_TV_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_TV = 71; % watt
+elseif button_state == get(hObject,'Min')
+    F2_TV = 0; % watt
+end
+set_param('House_model/Floor_2/Room_1/F2_TV','Value', num2str(F2_TV));
+
+
+
+function F2_R1_projector_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    %set(handles.F4_Accesspoint_radio,'BackgroundColor','green');
+    F2_R1_projector = 240; % watt
+    
+    %standby energy
+elseif button_state == get(hObject,'Min')
+    %set(handles.F4_Accesspoint_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_R1_projector = 0; % watt
+end
+set_param('House_model/Floor_2/Room_1/F2_projector','Value', num2str(F2_R1_projector));
+
+
+% --------------- ROOM 2; Studio ---------------------
+function F2_Fluorescent_toggle_3_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_3,'BackgroundColor','green');
+    F2_Fluorescent_3 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F3_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_Fluorescent_3 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_2/F2_fluorescent_1','Value', num2str(F2_Fluorescent_3));
+
+function F2_R2_computer_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    %set(handles.F2_R2_computer_radio,'BackgroundColor','green');
+    F2_R2_computer = 71; % watt
+elseif button_state == get(hObject,'Min')
+    %set(handles.F2_R2_computer_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_R2_computer = 0; % watt
+end
+set_param('House_model/Floor_2/Room_2/F2_computer','Value', num2str(F2_R2_computer));
+
+function F2_mixertable_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    %set(handles.F2_mixertable_radio,'BackgroundColor','green');
+    F2_mixertable = 71; % watt
+elseif button_state == get(hObject,'Min')
+    %set(handles.F2_mixertable_radio,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_mixertable = 0; % watt
+end
+set_param('House_model/Floor_2/Room_2/F2_mixertable','Value', num2str(F2_mixertable));
+
+function F2_R2_Bulb_radio_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R2_Bulb_1 = 7; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R2_Bulb_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_2/F2_bulb_1','Value', num2str(F2_R2_Bulb_1));
+
+function F2_R2_Bulb_radio_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R2_Bulb_2 = 7; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R2_Bulb_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_2/F2_bulb_2','Value', num2str(F2_R2_Bulb_2));
+
+
+% --------------- ROOM 3; Record ---------------------
+function F2_Fluorescent_toggle_4_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_4,'BackgroundColor','green');
+    F2_Fluorescent_4 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_Fluorescent_4 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_3/F2_fluorescent_1','Value', num2str(F2_Fluorescent_4));
+
+function F2_R3_keyboard_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R3_keyboard = 6; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R3_keyboard = 0; % watt
+end
+set_param('House_model/Floor_2/Room_3/F2_keyboard','Value', num2str(F2_R3_keyboard));
+
+function F2_R3_guitar_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R3_guitar = 20; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R3_guitar = 0; % watt
+end
+set_param('House_model/Floor_2/Room_3/F2_el_guitar','Value', num2str(F2_R3_guitar));
+
+function F2_R3_Mick_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R3_Mick = 1; % watt      --------------- REMOVE?! /J
+elseif button_state == get(hObject,'Min')
+    F2_R3_Mick = 0; % watt
+end
+set_param('House_model/Floor_2/Room_3/F2_mick','Value', num2str(F2_R3_Mick));
+
+% ------------- ROOM 4; Office/Media/Projection ------
+% accesspoint
+function F2_R4_Accesspoint_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_Accesspoint = 6.5; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_Accesspoint = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_accesspoint','Value', num2str(F2_R4_Accesspoint));
+% comp*4
+function F2_R4_computer_radio_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_1 = 6.5; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_1','Value', num2str(F2_R4_computer_1));
+% flourecent*2
+% Printer*2?
+
+
+%---------- Photo charging slider ---------------
+function F2_photo_slider_Callback(hObject, eventdata, handles)
+ F2_photo = round(get(hObject,'Value'));
+ F2_photo_effect = 12%F2_photo*12; %watt ändra ---------- CORRECT THIS ONE
+ set_param('House_model/Floor_2/Room_4/F2_photo','Value', num2str(F2_photo_effect));
+ sliderValue = num2str(F2_photo_effect)
+ set(handles.F2_photo_edit,'String', sliderValue);
+ 
+function F2_photo_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+function F2_photo_edit_Callback(hObject, eventdata, handles)
+
+function F2_photo_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+%---------- Phones charging slider ---------------
+function F2_phone_slider_Callback(hObject, eventdata, handles)
+ maxcharging_phone = 2.4*5;
+ F2_phone = round(get(hObject,'Value'));
+ F2_phone_effect = 5;%F2_phone*maxcharging_phone; %watt ändra ------- CORRET THIS ONE
+ set_param('House_model/Floor_2/Room_4/F2_phones','Value', num2str(F2_phone_effect));
+ sliderValue = num2str(F2_phone_effect)
+ set(handles.F2_phone_edit,'String', sliderValue);
+ 
+function F2_phone_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+function F2_phone_edit_Callback(hObject, eventdata, handles)
+
+function F2_phone_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% ---------- Video charging slider -----------------------
+function F2_video_slider_Callback(hObject, eventdata, handles)
+ %F2_video = round(get(hObject,'Value'));
+ F2_video_effect = 12; %F2_video*12; %watt ändra ------------ CORRECT THIS! 
+ set_param('House_model/Floor_2/Room_4/F2_video','Value', num2str(F2_video_effect));
+ sliderValue = num2str(F2_video_effect)
+ set(handles.F2_video_edit,'String', sliderValue);
+ 
+function F2_video_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+function F2_video_edit_Callback(hObject, eventdata, handles)
+
+function F2_video_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+% ------------ Laptop charging slider --------------
+
+function F2_laptop_slider_Callback(hObject, eventdata, handles)
+ F2_laptop = round(get(hObject,'Value'));
+ F2_laptop_effect = 45; % F2_laptop*45; %watt ändra  ----------- CORRECT THIS!! 
+ set_param('House_model/Floor_2/Room_4/F2_laptops','Value', num2str(F2_laptop_effect));
+ sliderValue = num2str(F2_laptop_effect)
+ set(handles.F2_laptop_edit,'String', sliderValue);
+
+function F2_laptop_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+function F2_laptop_edit_Callback(hObject, eventdata, handles)
+
+function F2_laptop_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
 
 
 
@@ -812,12 +1034,10 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 
 %maskio - sikio
 %macho - jicho
-%mapoa - poa
+%mapoa - poa - näsa
 %mdomo - 
 %nuele - Hår
 %chingo - hals
-%bega
-%mkono
-
-
+%bega - 
+%mkono - 
 
