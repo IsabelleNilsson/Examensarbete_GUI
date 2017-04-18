@@ -771,7 +771,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_1,'BackgroundColor','green');
     F2_flourescent_1 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
     F2_flourescent_1 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
@@ -782,7 +782,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_2,'BackgroundColor','green');
     F2_flourescent_2 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
     F2_flourescent_2 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_2','Value', num2str(F2_flourescent_2));
@@ -795,8 +795,6 @@ elseif button_state == get(hObject,'Min')
     F2_TV = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_TV','Value', num2str(F2_TV));
-
-
 
 function F2_R1_projector_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
@@ -819,7 +817,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_3,'BackgroundColor','green');
     F2_Fluorescent_3 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
     F2_Fluorescent_3 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_2/F2_fluorescent_1','Value', num2str(F2_Fluorescent_3));
@@ -905,16 +903,97 @@ end
 set_param('House_model/Floor_2/Room_3/F2_mick','Value', num2str(F2_R3_Mick));
 
 % ------------- ROOM 4; Office/Media/Projection ------
-% comp*4
 % accesspoint
-% flourecent*2
-% Printer*2?
+function F2_R4_Accesspoint_radio_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_Accesspoint = 6.5; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_Accesspoint = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_accesspoint','Value', num2str(F2_R4_Accesspoint));
+% comp*4
+function F2_R4_computer_radio_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_1 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_1','Value', num2str(F2_R4_computer_1));
 
+function F2_R4_computer_radio_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_2 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_2','Value', num2str(F2_R4_computer_2));
+
+function F2_R4_computer_radio_3_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_3 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_3 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_3','Value', num2str(F2_R4_computer_3));
+
+function F2_R4_computer_radio_4_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_4 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_4 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_4','Value', num2str(F2_R4_computer_4));
+% flourecent*2
+function F2_Fluorescent_toggle_5_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_5,'BackgroundColor','green');
+    F2_flourescent_5 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_5 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_flourescent_1','Value', num2str(F2_flourescent_5));
+
+function F2_Fluorescent_toggle_6_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_6,'BackgroundColor','green');
+    F2_flourescent_6 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_6 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_flourescent_2','Value', num2str(F2_flourescent_6));
+
+% Printer*2?
+function F2_R4_printer_radio_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_printer_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R4_printer_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_printer_1','Value', num2str(F2_R4_printer_1));
+
+function F2_R4_printer_radio_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_printer_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R4_printer_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_printer_1','Value', num2str(F2_R4_printer_2));
 
 %---------- Photo charging slider ---------------
 function F2_photo_slider_Callback(hObject, eventdata, handles)
  F2_photo = round(get(hObject,'Value'));
- F2_photo_effect = 12%F2_photo*12; %watt ändra ---------- CORRECT THIS ONE
+ F2_photo_effect = F2_photo*12; %watt ändra ---------- CORRECT THIS ONE
  set_param('House_model/Floor_2/Room_4/F2_photo','Value', num2str(F2_photo_effect));
  sliderValue = num2str(F2_photo_effect)
  set(handles.F2_photo_edit,'String', sliderValue);
@@ -1018,10 +1097,10 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 
 %maskio - sikio
 %macho - jicho
-%mapoa - poa
+%mapoa - poa - näsa
 %mdomo - 
 %nuele - Hår
 %chingo - hals
-%bega
-%mkono
+%bega - 
+%mkono - 
 

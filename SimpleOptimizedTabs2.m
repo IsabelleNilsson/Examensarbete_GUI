@@ -54,7 +54,7 @@ handles.output = hObject;
 %% Tabs Code
 % Settings
 TabFontSize = 8;
-TabNames = {'Floor 4','Floor 3','Floor 2','Energy'};
+TabNames = {'Floor 4','Floor 3','Floor 2','Floor 1','Energy'};
 FigWidth = 0.5;
 
 % Figure resize
@@ -531,8 +531,8 @@ function Phones_charging_slider_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
- maxcharging_phone = 2.4*5;         %% WHY? / Josefine
  F4_Phones_charging = round(get(hObject,'Value'));
+ maxcharging_phone = 2.4*5;         %% WHY? / Josefine
  F4_Phones_effect = F4_Phones_charging*maxcharging_phone; %watt ändra
  set_param('House_model/Floor_4/Outlet/F4_Phones','Value', num2str(F4_Phones_effect));
  
@@ -558,7 +558,7 @@ function Laptops_charging_slider_Callback(hObject, eventdata, handles)
 % SEN: ---- x hur lång tid det har gått eller antal timmar....
 % energy= nr * watt * time/60 kwh
 
- Laptops_Charging = round(get(hObject,'Value'));
+ Laptops_Charging = round(get(hObject,'Value'))
  F4_Laptop_effect = Laptops_Charging*45;
  set_param('House_model/Floor_4/Outlet/F4_Laptops','Value', num2str(F4_Laptop_effect));
  sliderValue = num2str(Laptops_Charging);
@@ -771,7 +771,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_1,'BackgroundColor','green');
     F2_flourescent_1 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
     F2_flourescent_1 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
@@ -782,7 +782,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_2,'BackgroundColor','green');
     F2_flourescent_2 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
     F2_flourescent_2 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_2','Value', num2str(F2_flourescent_2));
@@ -795,8 +795,6 @@ elseif button_state == get(hObject,'Min')
     F2_TV = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_TV','Value', num2str(F2_TV));
-
-
 
 function F2_R1_projector_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
@@ -819,7 +817,7 @@ if button_state == get(hObject,'Max')
     set(handles.F2_Fluorescent_toggle_3,'BackgroundColor','green');
     F2_Fluorescent_3 = 36; % watt
 elseif button_state == get(hObject,'Min')
-    set(handles.F3_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+    set(handles.F2_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
     F2_Fluorescent_3 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_2/F2_fluorescent_1','Value', num2str(F2_Fluorescent_3));
@@ -918,19 +916,85 @@ set_param('House_model/Floor_2/Room_4/F2_accesspoint','Value', num2str(F2_R4_Acc
 function F2_R4_computer_radio_1_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    F2_R4_computer_1 = 6.5; % watt  
+    F2_R4_computer_1 = 45; % watt  
 elseif button_state == get(hObject,'Min')
     F2_R4_computer_1 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_4/F2_computer_1','Value', num2str(F2_R4_computer_1));
-% flourecent*2
-% Printer*2?
 
+function F2_R4_computer_radio_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_2 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_2','Value', num2str(F2_R4_computer_2));
+
+function F2_R4_computer_radio_3_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_3 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_3 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_3','Value', num2str(F2_R4_computer_3));
+
+function F2_R4_computer_radio_4_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_computer_4 = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F2_R4_computer_4 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_computer_4','Value', num2str(F2_R4_computer_4));
+% flourecent*2
+function F2_Fluorescent_toggle_5_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_5,'BackgroundColor','green');
+    F2_flourescent_5 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_5 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_flourescent_1','Value', num2str(F2_flourescent_5));
+
+function F2_Fluorescent_toggle_6_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_6,'BackgroundColor','green');
+    F2_flourescent_6 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_6 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_flourescent_2','Value', num2str(F2_flourescent_6));
+
+% Printer*2?
+function F2_R4_printer_radio_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_printer_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R4_printer_1 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_printer_1','Value', num2str(F2_R4_printer_1));
+
+function F2_R4_printer_radio_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F2_R4_printer_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    F2_R4_printer_2 = 0; % watt
+end
+set_param('House_model/Floor_2/Room_4/F2_printer_1','Value', num2str(F2_R4_printer_2));
 
 %---------- Photo charging slider ---------------
 function F2_photo_slider_Callback(hObject, eventdata, handles)
- F2_photo = round(get(hObject,'Value'));
- F2_photo_effect = 12%F2_photo*12; %watt ändra ---------- CORRECT THIS ONE
+ %where = get(hObject,'Min')
+ F2_photo = (100*get(hObject,'Value'))
+ F2_photo_effect = F2_photo*8; %watt ändra ---------- CORRECT THIS ONE
  set_param('House_model/Floor_2/Room_4/F2_photo','Value', num2str(F2_photo_effect));
  sliderValue = num2str(F2_photo_effect)
  set(handles.F2_photo_edit,'String', sliderValue);
@@ -949,9 +1013,9 @@ end
 
 %---------- Phones charging slider ---------------
 function F2_phone_slider_Callback(hObject, eventdata, handles)
- maxcharging_phone = 2.4*5;
- F2_phone = round(get(hObject,'Value'));
- F2_phone_effect = 5;%F2_phone*maxcharging_phone; %watt ändra ------- CORRET THIS ONE
+ maxcharging_phone = 5;
+ F2_phone = 100*(get(hObject,'Value'))
+ F2_phone_effect = F2_phone*maxcharging_phone; %watt ändra ------- CORRET THIS ONE
  set_param('House_model/Floor_2/Room_4/F2_phones','Value', num2str(F2_phone_effect));
  sliderValue = num2str(F2_phone_effect)
  set(handles.F2_phone_edit,'String', sliderValue);
@@ -971,8 +1035,8 @@ end
 
 % ---------- Video charging slider -----------------------
 function F2_video_slider_Callback(hObject, eventdata, handles)
- %F2_video = round(get(hObject,'Value'));
- F2_video_effect = 12; %F2_video*12; %watt ändra ------------ CORRECT THIS! 
+ F2_video = (100*get(hObject,'Value'));
+ F2_video_effect = F2_video*12; %watt ändra ------------ CORRECT THIS! 
  set_param('House_model/Floor_2/Room_4/F2_video','Value', num2str(F2_video_effect));
  sliderValue = num2str(F2_video_effect)
  set(handles.F2_video_edit,'String', sliderValue);
@@ -992,8 +1056,8 @@ end
 % ------------ Laptop charging slider --------------
 
 function F2_laptop_slider_Callback(hObject, eventdata, handles)
- F2_laptop = round(get(hObject,'Value'));
- F2_laptop_effect = 45; % F2_laptop*45; %watt ändra  ----------- CORRECT THIS!! 
+ F2_laptop = (100*get(hObject,'Value'));
+ F2_laptop_effect = F2_laptop*45; %watt ändra  ----------- CORRECT THIS!! 
  set_param('House_model/Floor_2/Room_4/F2_laptops','Value', num2str(F2_laptop_effect));
  sliderValue = num2str(F2_laptop_effect)
  set(handles.F2_laptop_edit,'String', sliderValue);
@@ -1010,11 +1074,43 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
+% ------------- Stairwell -------------------------
+function F2_Fluorescent_toggle_7_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_7,'BackgroundColor','green');
+    F2_flourescent_7 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_7 = 0; % watt
+end
+set_param('House_model/Floor_2/Stairwell/F2_flourescent_1','Value', num2str(F2_flourescent_7));
+
+
+function F2_Fluorescent_toggle_8_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F2_Fluorescent_toggle_8,'BackgroundColor','green');
+    F2_flourescent_8 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F2_Fluorescent_toggle_8,'BackgroundColor',[0.94 0.94 0.94]);
+    F2_flourescent_8 = 0; % watt
+end
+set_param('House_model/Floor_2/Stairwell/F2_flourescent_2','Value', num2str(F2_flourescent_8));
+
+%-----------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Floor 1, Tab 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 10 flourescents
+% 1 router
+% outlets; phones and laptops
+
 
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%           Plot, Tab 4
+%           Plot, Tab 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % --- Executes during object creation, after setting all properties.
@@ -1041,3 +1137,194 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %bega - 
 %mkono - 
 
+
+
+
+
+% --- Executes on button press in togglebutton58.
+function togglebutton58_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton58 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton58
+
+
+% --- Executes on button press in togglebutton59.
+function togglebutton59_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton59 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton59
+
+
+% --- Executes on slider movement.
+function slider12_Callback(hObject, eventdata, handles)
+% hObject    handle to slider12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider12_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider12 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+% --- Executes on slider movement.
+function slider13_Callback(hObject, eventdata, handles)
+% hObject    handle to slider13 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'Value') returns position of slider
+%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+
+
+% --- Executes during object creation, after setting all properties.
+function slider13_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slider13 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: slider controls usually have a light gray background.
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
+
+
+
+function edit10_Callback(hObject, eventdata, handles)
+% hObject    handle to edit10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit10 as text
+%        str2double(get(hObject,'String')) returns contents of edit10 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit10_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit10 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit11_Callback(hObject, eventdata, handles)
+% hObject    handle to edit11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit11 as text
+%        str2double(get(hObject,'String')) returns contents of edit11 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit11_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit11 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in togglebutton50.
+function togglebutton50_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton50 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton50
+
+
+% --- Executes on button press in togglebutton51.
+function togglebutton51_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton51 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton51
+
+
+% --- Executes on button press in togglebutton52.
+function togglebutton52_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton52 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton52
+
+
+% --- Executes on button press in togglebutton53.
+function togglebutton53_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton53 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton53
+
+
+% --- Executes on button press in togglebutton54.
+function togglebutton54_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton54 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton54
+
+
+% --- Executes on button press in togglebutton55.
+function togglebutton55_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton55 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton55
+
+
+% --- Executes on button press in togglebutton56.
+function togglebutton56_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton56 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton56
+
+
+% --- Executes on button press in togglebutton57.
+function togglebutton57_Callback(hObject, eventdata, handles)
+% hObject    handle to togglebutton57 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of togglebutton57
+
+
+% --- Executes on button press in radiobutton57.
+function radiobutton57_Callback(hObject, eventdata, handles)
+% hObject    handle to radiobutton57 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of radiobutton57
