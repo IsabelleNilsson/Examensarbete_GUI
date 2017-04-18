@@ -1103,10 +1103,164 @@ set_param('House_model/Floor_2/Stairwell/F2_flourescent_2','Value', num2str(F2_f
 %           Floor 1, Tab 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 10 flourescents
+function F1_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_1,'BackgroundColor','green');
+    F1_flourescent_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_1 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_1','Value', num2str(F1_flourescent_1));
+
+function F1_Fluorescent_toggle_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_2,'BackgroundColor','green');
+    F1_flourescent_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_2 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_2','Value', num2str(F1_flourescent_2));
+
+function F1_Fluorescent_toggle_3_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_3,'BackgroundColor','green');
+    F1_flourescent_3 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_3,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_3 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_3','Value', num2str(F1_flourescent_3));
+
+function F1_Fluorescent_toggle_4_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_4,'BackgroundColor','green');
+    F1_flourescent_4 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_4,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_4 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_4','Value', num2str(F1_flourescent_4));
+
+function F1_Fluorescent_toggle_5_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_5,'BackgroundColor','green');
+    F1_flourescent_5 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_5,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_5 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_5','Value', num2str(F1_flourescent_5));
+
+function F1_Fluorescent_toggle_6_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_6,'BackgroundColor','green');
+    F1_flourescent_6 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_6,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_6 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_6','Value', num2str(F1_flourescent_6));
+
+function F1_Fluorescent_toggle_7_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_7,'BackgroundColor','green');
+    F1_flourescent_7 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_7,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_7 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_7','Value', num2str(F1_flourescent_7));
+
+function F1_Fluorescent_toggle_8_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_8,'BackgroundColor','green');
+    F1_flourescent_8 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_8,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_8 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_8','Value', num2str(F1_flourescent_8));
+
+function F1_Fluorescent_toggle_9_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_9,'BackgroundColor','green');
+    F1_flourescent_9 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_9,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_9 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_9','Value', num2str(F1_flourescent_9));
+
+function F1_Fluorescent_toggle_10_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.F1_Fluorescent_toggle_10,'BackgroundColor','green');
+    F1_flourescent_10 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_10,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_10 = 0; % watt
+end
+set_param('House_model/Floor_1/Lightening/F1_flourescent_10','Value', num2str(F1_flourescent_10));
+
 % 1 router
+function F1_router_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    F1_router = 45; % watt  
+elseif button_state == get(hObject,'Min')
+    F1_router = 0; % watt
+end
+set_param('House_model/Floor_1/Router/F1_router','Value', num2str(F1_router));
+
 % outlets; phones and laptops
+% --- Executes on slider movement.
+function F1_phones_slider_Callback(hObject, eventdata, handles)
+ maxcharging_phone = 5;
+ F1_phone = 100*(get(hObject,'Value'));
+ F1_phone_effect = F1_phone * maxcharging_phone;
+ set_param('House_model/Floor_1/Outlet/F1_phones','Value', num2str(F1_phone_effect));
+ sliderValue = num2str(F1_phone_effect);
+ set(handles.F1_phones_edit,'String', sliderValue);
+ 
+function F1_phones_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
 
+function F1_laptops_slider_Callback(hObject, eventdata, handles)
+ F1_laptop = (100*get(hObject,'Value'));
+ F1_laptop_effect = F1_laptop*45;
+ set_param('House_model/Floor_1/Outlet/F1_laptops','Value', num2str(F1_laptop_effect));
+ sliderValue = num2str(F1_laptop_effect);
+ set(handles.F1_laptops_edit,'String', sliderValue);
+ 
+ function F1_laptops_slider_CreateFcn(hObject, eventdata, handles)
+if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor',[.9 .9 .9]);
+end
 
+function F1_phones_edit_Callback(hObject, eventdata, handles)
+function F1_phones_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+function F1_laptops_edit_Callback(hObject, eventdata, handles)
+function F1_laptops_edit_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1141,190 +1295,3 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 
 
 
-% --- Executes on button press in togglebutton58.
-function togglebutton58_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton58 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton58
-
-
-% --- Executes on button press in togglebutton59.
-function togglebutton59_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton59 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton59
-
-
-% --- Executes on slider movement.
-function slider12_Callback(hObject, eventdata, handles)
-% hObject    handle to slider12 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-
-% --- Executes during object creation, after setting all properties.
-function slider12_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider12 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-% --- Executes on slider movement.
-function slider13_Callback(hObject, eventdata, handles)
-% hObject    handle to slider13 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-
-% --- Executes during object creation, after setting all properties.
-function slider13_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider13 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-
-function edit10_Callback(hObject, eventdata, handles)
-% hObject    handle to edit10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit10 as text
-%        str2double(get(hObject,'String')) returns contents of edit10 as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function edit10_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit10 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function edit11_Callback(hObject, eventdata, handles)
-% hObject    handle to edit11 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of edit11 as text
-%        str2double(get(hObject,'String')) returns contents of edit11 as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function edit11_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit11 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-% --- Executes on button press in togglebutton50.
-function togglebutton50_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton50 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton50
-
-
-% --- Executes on button press in togglebutton51.
-function togglebutton51_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton51 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton51
-
-
-% --- Executes on button press in togglebutton52.
-function togglebutton52_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton52 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton52
-
-
-% --- Executes on button press in togglebutton53.
-function togglebutton53_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton53 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton53
-
-
-% --- Executes on button press in togglebutton54.
-function togglebutton54_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton54 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton54
-
-
-% --- Executes on button press in togglebutton55.
-function togglebutton55_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton55 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton55
-
-
-% --- Executes on button press in togglebutton56.
-function togglebutton56_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton56 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton56
-
-
-% --- Executes on button press in togglebutton57.
-function togglebutton57_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton57 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton57
-
-
-% --- Executes on button press in radiobutton57.
-function radiobutton57_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton57 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of radiobutton57
