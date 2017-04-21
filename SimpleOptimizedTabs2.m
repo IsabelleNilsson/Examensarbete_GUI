@@ -54,7 +54,7 @@ handles.output = hObject;
 %% Tabs Code
 % Settings
 TabFontSize = 8;
-TabNames = {'Floor 4','Floor 3','Floor 2','Floor 1','Energy'};
+TabNames = {'Floor 4','Floor 3','Floor 2','Floor 1','Ground Floor','Energy'};
 FigWidth = 0.5;
 
 % Figure resize
@@ -1264,6 +1264,44 @@ end
 
 %-----------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Floor 1, Tab 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 2 flourescents
+function FG_Fluorescent_toggle_1_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.FG_Fluorescent_toggle_1,'BackgroundColor','green');
+    F1_flourescent_1 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.F1_Fluorescent_toggle_1,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_1 = 0; % watt
+end
+set_param('House_model/Floor_Ground/Lightening/FG_flourescent_1','Value', num2str(F1_flourescent_1));
+
+
+function FG_Fluorescent_toggle_2_Callback(hObject, eventdata, handles)
+button_state = get(hObject,'Value');
+if button_state == get(hObject,'Max')
+    set(handles.FG_Fluorescent_toggle_2,'BackgroundColor','green');
+    F1_flourescent_2 = 36; % watt
+elseif button_state == get(hObject,'Min')
+    set(handles.FG_Fluorescent_toggle_2,'BackgroundColor',[0.94 0.94 0.94]);
+    F1_flourescent_2 = 0; % watt
+end
+set_param('House_model/Floor_Ground/Lightening/FG_flourescent_2','Value', num2str(F1_flourescent_2));
+
+
+
+
+
+
+
+
+
+
+
+%-----------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %           Plot, Tab 5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1290,8 +1328,4 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %chingo - hals
 %bega - 
 %mkono - 
-
-
-
-
 
