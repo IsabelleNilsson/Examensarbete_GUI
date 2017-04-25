@@ -782,11 +782,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
 
-
-
-
-
-
 %h=findobj('Type','axes','Tag','axes3');
 
 %maskio - sikio
