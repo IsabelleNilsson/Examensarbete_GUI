@@ -782,11 +782,6 @@ elseif button_state == get(hObject,'Min')
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flourescent_1));
 
-<<<<<<< HEAD
-
-
-
-
 
 %h=findobj('Type','axes','Tag','axes3');
 
@@ -798,7 +793,6 @@ set_param('House_model/Floor_2/Room_1/F2_flourescent_1','Value', num2str(F2_flou
 %chingo - hals
 %bega
 %mkono
-=======
 function F2_Fluorescent_toggle_2_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
@@ -809,7 +803,7 @@ elseif button_state == get(hObject,'Min')
     F2_flourescent_2 = 0; % watt
 end
 set_param('House_model/Floor_2/Room_1/F2_flourescent_2','Value', num2str(F2_flourescent_2));
->>>>>>> origin/master
+
 
 function F2_TV_radio_Callback(hObject, eventdata, handles)
 button_state = get(hObject,'Value');
