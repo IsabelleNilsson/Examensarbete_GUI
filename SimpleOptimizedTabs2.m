@@ -185,7 +185,7 @@ varargout{1} = handles.output;
    
 %---------------- initiation  -----------------
 %------------ Set default values --------------
-        
+        pause on
         % reset value in GUI
         set(findobj('style','pushbutton'), 'Value', 0);
         set(findobj('style','checkbox'), 'Value', 0);
@@ -252,9 +252,15 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         %plot(ScopeData.time, ScopeData.signals.values)
         %funkar inte nu eftersom värdena inte kommit in än tror jag* 
 % ------------ Continue here ------------------------
-        plot(F4_E.time, F4_E.signals.values)
+        
+        %plot(sin(0:0.1:10))
+        
+        %plot(F4_E.time, F4_E.signals.values)
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
+    pause(1)
+    axes(handles.axes4)
+    plot(F4_E.time, F4_E.signals.values)
 
 %**********************************************
 %*************** FLOOR 4 **********************
@@ -789,6 +795,13 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %BlockTypes = get_param(BlockPaths,'BlockType')
 %BlockTypes = get_param(House_model/F4_bulb,'Scope')
 %rto = get_param(gcb,'simout');
+
+
+
+
+
+
+%h=findobj('Type','axes','Tag','axes3');
 
 %maskio - sikio
 %macho - jicho
