@@ -268,7 +268,7 @@ function Start_Stop_toggle_Callback(hObject, eventdata, handles)
         set(handles.Start_Stop_toggle,'BackgroundColor',[0.94 0.94 0.94]);
     end
     pause(1)
-    axes(handles.axes4)
+  %  axes(handles.axes4)
 %    plot(F4_E.time, F4_E.signals.values)
 
 %**********************************************
@@ -1342,3 +1342,13 @@ function axes4_CreateFcn(hObject, eventdata, handles)
 %bega - 
 %mkono - 
 
+
+
+% --- Executes on button press in results_pushbutton.
+function results_pushbutton_Callback(hObject, eventdata, handles)
+% hObject    handle to results_pushbutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+    axes(handles.axes4)
+    plot(F4_E.time, F4_E.signals.values)
