@@ -201,6 +201,15 @@ varargout{1} = handles.output;
         for i=1:1:n
             set_param(block_name{i,1},'Value','0') 
         end
+        % set stand-by values
+        %Floor 4
+        set_param('House_model/Floor_4/Lightening/Accesspoint','Value', 1);
+        set_param('House_model/Floor_4/Lightening/F4_Phones','Value', 1);
+        set_param('House_model/Floor_4/Lightening/F4_Laptops','Value', 1);
+
+
+
+
 
  
  %--- phones charging F4 ---
@@ -514,18 +523,6 @@ elseif button_state == get(hObject,'Min')
 end
 
 set_param('House_model/Floor_4/Lightening/F4_flourescent_6','Value', num2str(F4_flourescent_6));
-
-% --- Executes on button press in F4_MaxEffect_toggle_7.
-function F4_MaxEffect_toggle_7_Callback(hObject, eventdata, handles)
-
-% F4_Fluorescent_toggle_1_Callback(hObject, eventdata, handles);
-% F4_Fluorescent_toggle_2_Callback(hObject, eventdata, handles);
-% F4_Fluorescent_toggle_3_Callback(hObject, eventdata, handles);
-% F4_Fluorescent_toggle_4_Callback(hObject, eventdata, handles);
-% F4_Fluorescent_toggle_5_Callback(hObject, eventdata, handles);
-% F4_Fluorescent_toggle_6_Callback(hObject, eventdata, handles);
-% F4_Bulb_radio_1_Callback(hObject, eventdata, handles);
-
 
 
 %----------------- OUTLET ---------------------------
@@ -1009,10 +1006,10 @@ set_param('House_model/Floor_2/Room_4/F2_printer_1','Value', num2str(F2_R4_print
 %---------- Photo charging slider ---------------
 function F2_photo_slider_Callback(hObject, eventdata, handles)
  %where = get(hObject,'Min')
- F2_photo = (100*get(hObject,'Value'))
+ F2_photo = (100*get(hObject,'Value'));
  F2_photo_effect = F2_photo*8; %watt ändra ---------- CORRECT THIS ONE
  set_param('House_model/Floor_2/Room_4/F2_photo','Value', num2str(F2_photo_effect));
- sliderValue = num2str(F2_photo_effect)
+ sliderValue = num2str(F2_photo_effect);
  set(handles.F2_photo_edit,'String', sliderValue);
  
 function F2_photo_slider_CreateFcn(hObject, eventdata, handles)
@@ -1030,10 +1027,10 @@ end
 %---------- Phones charging slider ---------------
 function F2_phone_slider_Callback(hObject, eventdata, handles)
  maxcharging_phone = 5;
- F2_phone = 100*(get(hObject,'Value'))
+ F2_phone = 100*(get(hObject,'Value'));
  F2_phone_effect = F2_phone*maxcharging_phone; %watt ändra ------- CORRET THIS ONE
  set_param('House_model/Floor_2/Room_4/F2_phones','Value', num2str(F2_phone_effect));
- sliderValue = num2str(F2_phone_effect)
+ sliderValue = num2str(F2_phone_effect);
  set(handles.F2_phone_edit,'String', sliderValue);
  
 function F2_phone_slider_CreateFcn(hObject, eventdata, handles)
@@ -1054,7 +1051,7 @@ function F2_video_slider_Callback(hObject, eventdata, handles)
  F2_video = (100*get(hObject,'Value'));
  F2_video_effect = F2_video*12; %watt ändra ------------ CORRECT THIS! 
  set_param('House_model/Floor_2/Room_4/F2_video','Value', num2str(F2_video_effect));
- sliderValue = num2str(F2_video_effect)
+ sliderValue = num2str(F2_video_effect);
  set(handles.F2_video_edit,'String', sliderValue);
  
 function F2_video_slider_CreateFcn(hObject, eventdata, handles)
